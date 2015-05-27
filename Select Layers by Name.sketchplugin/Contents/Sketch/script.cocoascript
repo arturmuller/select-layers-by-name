@@ -1,30 +1,14 @@
 var onRun = function(context) {
   
-  var doc = context.document;
-  var currentPage = doc.currentPage();
-
+  var doc = context.document;  
   var targetName = [doc askForUserInput:"Enter the name of layers to select" initialValue:""]
+  var currentPage = doc.currentPage();
+  var allLayers = currentPage.children();
 
-  checkNameAndTraverse(currentPage);
-
-  function checkNameAndTraverse(layer) {
-    var layerName = layer.name();
-    if (layerName == targetName) {
-      log('Added to selection.');
+  var loop = [allLayers objectEnumerator];
+  while (layer = [loop nextObject]) {
+    if (layer.name() == targetName) {
       addToSelection(layer);
-    }
-    traverse(layer);
-  }
-
-  function traverse(layer) {
-    if ([layer class] == "MSArtboardGroup" || [layer class] == "MSLayerGroup" || [layer class] == "MSPage") {
-      var childLayers = [layer layers].array();
-      if (childLayers){
-        var loop = [childLayers objectEnumerator];
-         while (item = [loop nextObject]) {
-          checkNameAndTraverse(item);  
-        }
-      }
     }
   }
 
