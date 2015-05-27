@@ -3,6 +3,10 @@ Select Layers by Name
 
 Create a layer selection based on their name.
 
+## Demo
+
+![Demo of Sketch Plugin: Select Layers by Name](https://dl.dropboxusercontent.com/s/m7pd15ad81h4idy/Select%20Layers%20by%20Name%20Example%20Small.gif?dl=0)
+
 ## License
 
 Copyright (c) 2015 Artur Muller
