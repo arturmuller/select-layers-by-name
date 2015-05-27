@@ -1,7 +1,7 @@
 Select Layers by Name
 =====================
 
-Create a layer selection based on their name.
+Create a selection based on layer names. Currently, the selection is scoped to currently open page. The name is __case sensitive__ and has to match exactly. For example, if you want to match 'New Post' you have to type it as 'New Post' -- just 'New' or 'Post' won't work.
 
 ## Demo
 
