@@ -1,0 +1,23 @@
+{
+  "author" : "Artur Muller",
+  "commands" : [
+    {
+      "script" : "script.cocoascript",
+      "handler" : "onRun",
+      "shortcut" : "cmd l",
+      "name" : "Select Layers by Name",
+      "identifier" : "select layers by name"
+    }
+  ],
+  "menu" : {
+    "items" : [
+      "select layers by name"
+    ],
+    "title" : "Select Layers by Name"
+  },
+  "identifier" : "com.example.sketch.30a9184e-e6ec-4f7c-b8b6-3a2e59d99b5d",
+  "version" : "1.0",
+  "description" : "",
+  "authorEmail" : "me@arturmuller.com",
+  "name" : "Select Layers by Name"
+}

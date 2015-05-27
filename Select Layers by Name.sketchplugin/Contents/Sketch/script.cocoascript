@@ -1,0 +1,34 @@
+var onRun = function(context) {
+  
+  var doc = context.document;
+  var currentPage = doc.currentPage();
+
+  var targetName = [doc askForUserInput:"Enter the name of layers to select" initialValue:""]
+
+  checkNameAndTraverse(currentPage);
+
+  function checkNameAndTraverse(layer) {
+    var layerName = layer.name();
+    if (layerName == targetName) {
+      log('Added to selection.');
+      addToSelection(layer);
+    }
+    traverse(layer);
+  }
+
+  function traverse(layer) {
+    if ([layer class] == "MSArtboardGroup" || [layer class] == "MSLayerGroup" || [layer class] == "MSPage") {
+      var childLayers = [layer layers].array();
+      if (childLayers){
+        var loop = [childLayers objectEnumerator];
+         while (item = [loop nextObject]) {
+          checkNameAndTraverse(item);  
+        }
+      }
+    }
+  }
+
+  function addToSelection(layer) {
+    [layer select:true byExpandingSelection:true]
+  }
+};
