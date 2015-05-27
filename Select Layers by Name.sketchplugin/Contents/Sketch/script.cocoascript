@@ -1,18 +1,15 @@
 var onRun = function(context) {
   
   var doc = context.document;  
-  var targetName = [doc askForUserInput:"Enter the name of layers to select" initialValue:""]
+  var targetName = [doc askForUserInput:"Enter the exact name of layers to select" initialValue:""]
+  targetName = targetName.toLowerCase();
   var currentPage = doc.currentPage();
   var allLayers = currentPage.children();
 
   var loop = [allLayers objectEnumerator];
   while (layer = [loop nextObject]) {
-    if (layer.name() == targetName) {
-      addToSelection(layer);
+    if (layer.name().toLowerCase() == targetName) {
+      [layer select:true byExpandingSelection:true];
     }
-  }
-
-  function addToSelection(layer) {
-    [layer select:true byExpandingSelection:true]
   }
 };
