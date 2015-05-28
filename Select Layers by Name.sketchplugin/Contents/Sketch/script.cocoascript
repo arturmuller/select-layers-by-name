@@ -5,7 +5,7 @@
  */
 
 function init(doc, userInputHint) { 
-  this.userInput = [doc askForUserInput:userInputHint initialValue:""]
+  this.userInput = doc.askForUserInput_initialValue(userInputHint, "");
   this.targetName = userInput.toLowerCase();
   this.currentPage = doc.currentPage();
   this.allLayers = currentPage.children();
@@ -60,7 +60,7 @@ var matchExact = function(context) {
   while (layer = loop.nextObject()) {
     if (isSelectable(layer)){
       if (layer.name().toLowerCase() == values.targetName) {
-        [layer select:true byExpandingSelection:true];
+        layer.select_byExpandingSelection(true, true);
         count = count + 1;
       }
     }
@@ -84,7 +84,7 @@ var matchPartial = function(context) {
     if (isSelectable(layer)){
       layerName = layer.name().toLowerCase();
       if (layerName.indexOf(values.targetName) > -1) {
-        [layer select:true byExpandingSelection:true];
+        layer.select_byExpandingSelection(true, true);
         count = count + 1;
       }
     }
