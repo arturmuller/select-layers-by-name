@@ -34,6 +34,22 @@ function generateMessage(count, messageNone, messageSingle, messageMultiple) {
   }
 }
 
+/**
+ * Check whether the layer is of a class that makes sense selecting
+ * @param {Object} layer — a Sketch layer
+ * @returns {Boolean}
+ */
+
+function isSelectable(layer) {
+  var layerClass = layer.class();
+
+  if (layerClass == "MSArtboardGroup" || layerClass == "MSBitmapLayer" || layerClass == "MSLayerGroup" || layerClass == "MSShapeGroup" || layerClass == "MSTextLayer") {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 var matchExact = function(context) {
   
   var doc = context.document;
@@ -42,9 +58,11 @@ var matchExact = function(context) {
   var count = 0;
   var loop = values.allLayers.objectEnumerator();
   while (layer = loop.nextObject()) {
-    if (layer.name().toLowerCase() == values.targetName) {
-      [layer select:true byExpandingSelection:true];
-      count = count + 1;
+    if (isSelectable(layer)){
+      if (layer.name().toLowerCase() == values.targetName) {
+        [layer select:true byExpandingSelection:true];
+        count = count + 1;
+      }
     }
   }
 
@@ -63,10 +81,12 @@ var matchPartial = function(context) {
   var count = 0;
   var loop = values.allLayers.objectEnumerator();
   while (layer = loop.nextObject()) {
-    layerName = layer.name().toLowerCase();
-    if (layerName.indexOf(values.targetName) > -1) {
-      [layer select:true byExpandingSelection:true];
-      count = count + 1;
+    if (isSelectable(layer)){
+      layerName = layer.name().toLowerCase();
+      if (layerName.indexOf(values.targetName) > -1) {
+        [layer select:true byExpandingSelection:true];
+        count = count + 1;
+      }
     }
   }
 
