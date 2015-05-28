@@ -1,23 +1,33 @@
 {
+  "name" : "Select Layers by Name",
+  "description" : "Create a selection based on layer names",
+  "homepage": "https://github.com/arturmuller/select-layers-by-name",
   "author" : "Artur Muller",
+  "identifier" : "com.example.sketch.30a9184e-e6ec-4f7c-b8b6-3a2e59d99b5d",
+  "version" : "1.0",
+  "authorEmail" : "me@arturmuller.com",
+  "compatibleVersion": 3.3,
   "commands" : [
     {
       "script" : "script.cocoascript",
-      "handler" : "onRun",
+      "handler" : "matchExact",
       "shortcut" : "cmd l",
-      "name" : "Select Layers by Name",
-      "identifier" : "select layers by name"
+      "name" : "Select Layers by Exact Name",
+      "identifier" : "select layers by exact name"
+    },
+    {
+      "script" : "script.cocoascript",
+      "handler" : "matchPartial",
+      "shortcut" : "cmd alt l",
+      "name" : "Select Layers by Partial Name",
+      "identifier" : "select layers by partial name"
     }
   ],
   "menu" : {
     "items" : [
-      "select layers by name"
+      "select layers by exact name",
+      "select layers by partial name"
     ],
     "title" : "Select Layers by Name"
-  },
-  "identifier" : "com.example.sketch.30a9184e-e6ec-4f7c-b8b6-3a2e59d99b5d",
-  "version" : "1.0",
-  "description" : "",
-  "authorEmail" : "me@arturmuller.com",
-  "name" : "Select Layers by Name"
+  }
 }

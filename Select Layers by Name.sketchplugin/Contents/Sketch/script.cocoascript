@@ -1,15 +1,58 @@
-var onRun = function(context) {
+var matchExact = function(context) {
   
   var doc = context.document;  
-  var targetName = [doc askForUserInput:"Enter the exact name of layers to select" initialValue:""]
-  targetName = targetName.toLowerCase();
+  var userInput = [doc askForUserInput:"Enter the exact name of layers to select" initialValue:""]
+  targetName = userInput.toLowerCase();
   var currentPage = doc.currentPage();
   var allLayers = currentPage.children();
 
+  var count = 0;
   var loop = [allLayers objectEnumerator];
   while (layer = [loop nextObject]) {
     if (layer.name().toLowerCase() == targetName) {
       [layer select:true byExpandingSelection:true];
+      count = count + 1;
     }
+  }
+
+  if (count == 0) {
+    var messageNone = "No elements called " + userInput + " were found. :(";
+    [doc showMessage:messageNone];
+  } else if (count == 1) {
+    var messageSingle = "Selected " + count + " element called " + userInput + ".";
+    [doc showMessage:messageSingle];
+  } else {
+    var messageMultiple = "Selected " + count + " elements called " + userInput + ".";
+    [doc showMessage:messageMultiple];
+  }
+};
+
+var matchPartial = function(context) {
+  
+  var doc = context.document;  
+  var userInput = [doc askForUserInput:"Enter a partial name of layers to select" initialValue:""]
+  targetName = userInput.toLowerCase();
+  var currentPage = doc.currentPage();
+  var allLayers = currentPage.children();
+
+  var count = 0;
+  var loop = [allLayers objectEnumerator];
+  while (layer = [loop nextObject]) {
+    layerName = layer.name().toLowerCase();
+    if (layerName.indexOf(targetName) > -1) {
+      [layer select:true byExpandingSelection:true];
+      count = count + 1;
+    }
+  }
+
+  if (count == 0) {
+    var messageNone = "No elements containing " + userInput + " were found. :(";
+    [doc showMessage:messageNone];
+  } else if (count == 1) {
+    var messageSingle = "Selected " + count + " element containing " + userInput + ".";
+    [doc showMessage:messageSingle];
+  } else {
+    var messageMultiple = "Selected " + count + " elements containing " + userInput + ".";
+    [doc showMessage:messageMultiple];
   }
 };

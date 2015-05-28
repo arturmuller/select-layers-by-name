@@ -1,7 +1,11 @@
 Select Layers by Name
 =====================
 
-Create a selection based on layer names. Currently, the selection is scoped to currently open page and works for artboards, groups and layers. The name you input is case insensitive but has to match exactly. For example, if you want to match 'New Post' you are able to type it as 'new post' or 'NeW PoSt' but using only 'New' or 'Post' won't work.
+Create a selection using layer names. The plugin has two commands, both of which are case insensitive:
+
+**Select Layers by Exact Name (⌘L)** matches all layers on current page whose name _matches exactly_ the name you have typed. For example, to select a layer called 'New Post' you are able to type 'new post' or 'NeW PoSt' but using only 'New' or 'Post' won't work.
+
+**Select Layers by Partial Name (⎇⌘L)** matches all layers on current page whose name _contains_ the name you have typed. For example, to select a layer called 'New Post' you are able to type 'new' or 'POST' to make the selection.
 
 ## Demo
 
