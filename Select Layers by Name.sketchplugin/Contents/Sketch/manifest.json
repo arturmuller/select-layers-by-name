@@ -12,14 +12,14 @@
       "script" : "script.cocoascript",
       "handler" : "matchExact",
       "shortcut" : "cmd l",
-      "name" : "Select Layers by Exact Name",
+      "name" : "Match Exact Name",
       "identifier" : "select layers by exact name"
     },
     {
       "script" : "script.cocoascript",
       "handler" : "matchPartial",
       "shortcut" : "cmd alt l",
-      "name" : "Select Layers by Partial Name",
+      "name" : "Match Partial Name",
       "identifier" : "select layers by partial name"
     }
   ],

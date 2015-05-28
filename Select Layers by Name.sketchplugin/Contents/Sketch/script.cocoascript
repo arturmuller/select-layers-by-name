@@ -53,7 +53,7 @@ function isSelectable(layer) {
 var matchExact = function(context) {
   
   var doc = context.document;
-  var values = init(doc, "Enter the exact name of layers to select");
+  var values = init(doc, "Select layer(s) by matching name exactly");
 
   var count = 0;
   var loop = values.allLayers.objectEnumerator();
@@ -66,9 +66,9 @@ var matchExact = function(context) {
     }
   }
 
-  var messageNone = "No elements called " + values.userInput + " were found. :(";
-  var messageSingle = "Selected " + count + " element called " + values.userInput + ".";
-  var messageMultiple = "Selected " + count + " elements called " + values.userInput + ".";
+  var messageNone = "No layers called '" + values.userInput + "' were found :(";
+  var messageSingle = "Selected 1 layer called '" + values.userInput + "'";
+  var messageMultiple = "Selected " + count + " layers called '" + values.userInput + "'";
   doc.showMessage(generateMessage(count, messageNone, messageSingle, messageMultiple));
 
 };
@@ -76,7 +76,7 @@ var matchExact = function(context) {
 var matchPartial = function(context) {
   
   var doc = context.document;
-  var values = init(doc, "Enter a partial name of layers to select");
+  var values = init(doc, "Select layer(s) by matching name partially");
 
   var count = 0;
   var loop = values.allLayers.objectEnumerator();
@@ -90,8 +90,8 @@ var matchPartial = function(context) {
     }
   }
 
-  var messageNone = "No elements containing " + userInput + " were found. :(";
-  var messageSingle = "Selected " + count + " element containing " + userInput + ".";
-  var messageMultiple = "Selected " + count + " elements containing " + userInput + ".";
+  var messageNone = "No layers whose name contains '" + userInput + "' were found :(";
+  var messageSingle = "Selected 1 layer whose name contains '" + userInput + "'";
+  var messageMultiple = "Selected " + count + " layers whose name contains '" + userInput + "'";
   doc.showMessage(generateMessage(count, messageNone, messageSingle, messageMultiple));
 };
