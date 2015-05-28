@@ -1,15 +1,17 @@
 Select Layers by Name
 =====================
 
-Create a selection using layer names. The plugin has two commands, both of which are case insensitive:
+Create a selection using layer names. The plugin has two commands:
 
-**Select Layers by Exact Name (⌘L)** matches all layers on current page whose name _matches exactly_ the name you have typed. For example, to select a layer called 'New Post' you are able to type 'new post' or 'NeW PoSt' but using only 'New' or 'Post' won't work.
+**Select Layers by Exact Name** (⌘L) selects all layers whose name _matches exactly_ the name you have typed. For example, to select a layer called 'New Post' you should type 'New Post' — using only 'New' or 'Post' won't select the layer.
 
-**Select Layers by Partial Name (⎇⌘L)** matches all layers on current page whose name _contains_ the name you have typed. For example, to select a layer called 'New Post' you are able to type 'new' or 'POST' to make the selection.
+**Select Layers by Partial Name** (⎇⌘L) selects all layers whose name _contains_ the name you have typed. For example, to select a layer called 'New Post' you will get a match by typing 'New', 'Post', 'ew', 'ost', etc...
+
+Note that both commands are scoped to the _current page_ and are _case insensitive_.
 
 ## Demo
 
-![Demo of Sketch Plugin: Select Layers by Name](https://dl.dropboxusercontent.com/s/m7pd15ad81h4idy/Select%20Layers%20by%20Name%20Example%20Small.gif?dl=0)
+![Demo of Select Layers by Name v1.1](https://dl.dropboxusercontent.com/s/u971rnml3inlevt/Select%20Layers%20by%20Name%20v1.1%20Example.gif?dl=0)
 
 ## License
 
