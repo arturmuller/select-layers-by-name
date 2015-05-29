@@ -11,9 +11,9 @@ Note that both commands are scoped to the _current page_ and are _case insensiti
 
 ## Demo
 
-_Click to open demo on YouTube._
+_Click image to see demo on YouTube._
 
-[![Demo of Select Layers by Name v2.0.0](http://i.imgur.com/vt659ZA.png)](https://www.youtube.com/watch?v=kgJKhI0SYzg)
+[![Demo of Select Layers by Name v2.0.0](http://i.imgur.com/5GYIG3E.png)](https://www.youtube.com/watch?v=kgJKhI0SYzg)
 
 ## License
 
