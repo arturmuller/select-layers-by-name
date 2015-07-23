@@ -4,7 +4,7 @@
   "homepage": "https://github.com/arturmuller/select-layers-by-name",
   "author" : "Artur Muller",
   "identifier" : "com.example.sketch.30a9184e-e6ec-4f7c-b8b6-3a2e59d99b5d",
-  "version" : "2.0.0",
+  "version" : "2.1.0",
   "authorEmail" : "me@arturmuller.com",
   "compatibleVersion": "3.3.2",
   "commands" : [

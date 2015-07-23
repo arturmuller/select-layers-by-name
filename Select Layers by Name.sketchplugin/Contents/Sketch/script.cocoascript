@@ -4,8 +4,11 @@
  * @param {String} userInputHint — instructions for users in the input dialog
  */
 
-function init(doc, userInputHint) { 
-  this.userInput = doc.askForUserInput_initialValue(userInputHint, "");
+function init(context, userInputHint) { 
+  var doc = context.document;
+  var defaultInputValue = (context.selection.length() > 0) ? context.selection[0].name() : "";
+
+  this.userInput = doc.askForUserInput_initialValue(userInputHint, defaultInputValue);
   this.targetName = userInput.toLowerCase();
   this.currentPage = doc.currentPage();
   this.allLayers = currentPage.children();
@@ -52,8 +55,7 @@ function isSelectable(layer) {
 
 var matchExact = function(context) {
   
-  var doc = context.document;
-  var values = init(doc, "Select layer(s) by matching name exactly");
+  var values = init(context, "Select layer(s) by matching name exactly");
 
   var count = 0;
   var loop = values.allLayers.objectEnumerator();
@@ -75,8 +77,7 @@ var matchExact = function(context) {
 
 var matchPartial = function(context) {
   
-  var doc = context.document;
-  var values = init(doc, "Select layer(s) by matching name partially");
+  var values = init(context, "Select layer(s) by matching name partially");
 
   var count = 0;
   var loop = values.allLayers.objectEnumerator();
