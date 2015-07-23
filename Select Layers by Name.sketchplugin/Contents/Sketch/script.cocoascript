@@ -1,14 +1,14 @@
 /**
  * Initalize default values
- * @param {Object} context — context object given by Sketch
+ * @param {Object} context — context object supplied by Sketch
  * @param {String} userInputHint — instructions for users in the input dialog
  */
 
 function init(context, userInputHint) { 
   var doc = context.document;
-  var defaultInputValue = (context.selection.length() > 0) ? context.selection[0].name() : "";
+  var initialInputValue = (context.selection.length() > 0) ? context.selection[0].name() : "";
 
-  this.userInput = doc.askForUserInput_initialValue(userInputHint, defaultInputValue);
+  this.userInput = doc.askForUserInput_initialValue(userInputHint, initialInputValue);
   this.targetName = userInput.toLowerCase();
   this.currentPage = doc.currentPage();
   this.allLayers = currentPage.children();
@@ -20,6 +20,7 @@ function init(context, userInputHint) {
 
 /**
  * Generate message based on selected elements count
+ * @param {Object} context — context object supplied by Sketch
  * @param {Number} count — number of elements selected
  * @param {String} messageNone — message to be returned if no elements were selected
  * @param {String} messageSingle — message to be returned if exactly one element was selected
@@ -27,13 +28,13 @@ function init(context, userInputHint) {
  * @returns {String}
  */
 
-function generateMessage(count, messageNone, messageSingle, messageMultiple) {
-  if (count == 0) {
-    return messageNone;
-  } else if (count == 1) {
-    return messageSingle;
+function generateMessage(context, count, messageNone, messageSingle, messageMultiple) {
+  if (count === 0) {
+    context.document.showMessage(messageNone);
+  } else if (count === 1) {
+    context.document.showMessage(messageSingle);
   } else {
-    return messageMultiple;
+    context.document.showMessage(messageMultiple);
   }
 }
 
@@ -71,7 +72,8 @@ var matchExact = function(context) {
   var messageNone = "No layers called '" + values.userInput + "' were found :(";
   var messageSingle = "Selected 1 layer called '" + values.userInput + "'";
   var messageMultiple = "Selected " + count + " layers called '" + values.userInput + "'";
-  doc.showMessage(generateMessage(count, messageNone, messageSingle, messageMultiple));
+  
+  generateMessage(context, count, messageNone, messageSingle, messageMultiple);
 
 };
 
@@ -94,5 +96,6 @@ var matchPartial = function(context) {
   var messageNone = "No layers whose name contains '" + userInput + "' were found :(";
   var messageSingle = "Selected 1 layer whose name contains '" + userInput + "'";
   var messageMultiple = "Selected " + count + " layers whose name contains '" + userInput + "'";
-  doc.showMessage(generateMessage(count, messageNone, messageSingle, messageMultiple));
+  
+  generateMessage(context, count, messageNone, messageSingle, messageMultiple);
 };
