@@ -1,5 +1,6 @@
-Select Layers by Name
-=====================
+**BEWARE: This plugin is written in legacy Sketch plugin format and it will not work on new versions of Sketch. I will rewrite this once I have a spare second, so check back later if you're interested in this functionality. (PRs welcome!)**
+
+# Select Layers by Name
 
 Create a selection using layer names. The plugin has two commands:
 
